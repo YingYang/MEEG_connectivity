@@ -17,8 +17,6 @@ import matplotlib.pyplot as plt
 from mne.datasets import sample
 import copy
 
-fig_outdir = "/home/ying/Dropbox/Thesis/Dissertation/Draft/Figures/Result_figures/roi_cov/"
-
 if __name__ == "__main__":
     data_path = sample.data_path()
     fwd_fname = data_path + '/MEG/sample/sample_audvis-meg-eeg-oct-6-fwd.fif'

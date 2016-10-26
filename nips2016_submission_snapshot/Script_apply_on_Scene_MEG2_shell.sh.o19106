@@ -1,0 +1,5301 @@
+Subj8
+Subj8 0 lh
+Subj8 0 rh
+Subj8 1 lh
+Subj8 1 rh
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+80
+Reading /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/epoch_raw_data//Subj8/Subj8_run1_filter_1_110Hz_notch_ica-epo.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (None)
+        0 CTF compensation matrices available
+199 matching events found
+Applying baseline correction (mode: mean)
+Created an SSP operator (subspace dimension = 5)
+199 matching events found
+Applying baseline correction (mode: mean)
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+bootstrap id = 20
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 20
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.62873820e-06   0.00000000e+00]
+ [  1.26738745e-07   9.45505552e-07]]
+[[  2.01209715e-06   0.00000000e+00]
+ [  6.99113188e-08   1.22667458e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14530874.13268412]
+ EM MaxIter achieved
+14525985.8464
+bootstrap id = 21
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 21
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.54607566e-06   0.00000000e+00]
+ [  1.70720455e-07   9.90459045e-07]]
+[[  2.03446203e-06   0.00000000e+00]
+ [  6.99123480e-08   1.24199658e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14528109.88587183]
+ EM MaxIter achieved
+14524282.8312
+bootstrap id = 22
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 22
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.62827098e-06   0.00000000e+00]
+ [  7.90981151e-08   1.00847669e-06]]
+[[  2.05246537e-06   0.00000000e+00]
+ [  7.52956033e-08   1.23408272e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14647359.95976093]
+14644286.6698
+bootstrap id = 23
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 23
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.51966881e-06   0.00000000e+00]
+ [  4.22734058e-08   9.50535834e-07]]
+[[  2.02762305e-06   0.00000000e+00]
+ [  7.94087116e-08   1.24853551e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14622154.19883731]
+14619053.5452
+bootstrap id = 24
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 24
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.65813859e-06   0.00000000e+00]
+ [  9.44867220e-08   1.03911809e-06]]
+[[  2.04155103e-06   0.00000000e+00]
+ [  8.42072395e-08   1.24610710e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14555979.31294423]
+ EM MaxIter achieved
+14551855.9717
+bootstrap id = 25
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 25
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.67571633e-06   0.00000000e+00]
+ [  9.45016821e-08   1.00193807e-06]]
+[[  2.03595158e-06   0.00000000e+00]
+ [  7.89631478e-08   1.23616675e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14530387.90958127]
+ EM MaxIter achieved
+14526493.3127
+bootstrap id = 26
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 26
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.60471251e-06   0.00000000e+00]
+ [  5.41146232e-08   9.65262231e-07]]
+[[  2.05318956e-06   0.00000000e+00]
+ [  6.20508418e-08   1.23621586e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14538902.7487901]
+ EM MaxIter achieved
+14534831.2769
+bootstrap id = 27
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 27
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.60329585e-06   0.00000000e+00]
+ [  1.33460410e-07   9.96845920e-07]]
+[[  2.01775152e-06   0.00000000e+00]
+ [  5.97479203e-08   1.24065494e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14533742.88388184]
+ EM MaxIter achieved
+14528742.7486
+bootstrap id = 28
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 28
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.78154661e-06   0.00000000e+00]
+ [ -4.80149023e-08   1.03008087e-06]]
+[[  2.03046640e-06   0.00000000e+00]
+ [  6.96865045e-08   1.24179167e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14549795.09674636]
+ EM MaxIter achieved
+14545263.1856
+bootstrap id = 29
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 29
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.59968173e-06   0.00000000e+00]
+ [  1.22500174e-07   9.20565726e-07]]
+[[  2.01575795e-06   0.00000000e+00]
+ [  7.38443413e-08   1.23643033e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14529888.20837772]
+ EM MaxIter achieved
+14525786.2754
+bootstrap id = 30
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+The events passed to the Epochs constructor are not chronologically ordered.
+362 matching events found
+No baseline correction applied
+Created an SSP operator (subspace dimension = 5)
+5 projection items activated
+0 bad epochs dropped
+When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Total rank is 301
+Computing inverse operator with 306 channels.
+Creating the source covariance matrix
+Whitening the forward solution.
+Adjusting source covariance matrix.
+Computing SVD of whitened and weighted lead field matrix.
+    largest singular value = 4.12218
+    scaling factor to adjust the trace = 2.34171e+20
+Preparing the inverse operator for use...
+    Scaled noise and source covariance from nave = 1 to nave = 1
+    Created the regularized inverter
+    Created an SSP operator (subspace dimension = 5)
+    Created the whitener using a full noise covariance matrix (5 small eigenvalues omitted)
+Picked 306 channels from the data
+Computing inverse...
+(eigenleads need to be weighted)...
+Processing epoch : 1
+Processing epoch : 2
+Processing epoch : 3
+Processing epoch : 4
+Processing epoch : 5
+Processing epoch : 6
+Processing epoch : 7
+Processing epoch : 8
+Processing epoch : 9
+Processing epoch : 10
+Processing epoch : 11
+Processing epoch : 12
+Processing epoch : 13
+Processing epoch : 14
+Processing epoch : 15
+Processing epoch : 16
+Processing epoch : 17
+Processing epoch : 18
+Processing epoch : 19
+Processing epoch : 20
+Processing epoch : 21
+Processing epoch : 22
+Processing epoch : 23
+Processing epoch : 24
+Processing epoch : 25
+Processing epoch : 26
+Processing epoch : 27
+Processing epoch : 28
+Processing epoch : 29
+Processing epoch : 30
+Processing epoch : 31
+Processing epoch : 32
+Processing epoch : 33
+Processing epoch : 34
+Processing epoch : 35
+Processing epoch : 36
+Processing epoch : 37
+Processing epoch : 38
+Processing epoch : 39
+Processing epoch : 40
+Processing epoch : 41
+Processing epoch : 42
+Processing epoch : 43
+Processing epoch : 44
+Processing epoch : 45
+Processing epoch : 46
+Processing epoch : 47
+Processing epoch : 48
+Processing epoch : 49
+Processing epoch : 50
+Processing epoch : 51
+Processing epoch : 52
+Processing epoch : 53
+Processing epoch : 54
+Processing epoch : 55
+Processing epoch : 56
+Processing epoch : 57
+Processing epoch : 58
+Processing epoch : 59
+Processing epoch : 60
+Processing epoch : 61
+Processing epoch : 62
+Processing epoch : 63
+Processing epoch : 64
+Processing epoch : 65
+Processing epoch : 66
+Processing epoch : 67
+Processing epoch : 68
+Processing epoch : 69
+Processing epoch : 70
+Processing epoch : 71
+Processing epoch : 72
+Processing epoch : 73
+Processing epoch : 74
+Processing epoch : 75
+Processing epoch : 76
+Processing epoch : 77
+Processing epoch : 78
+Processing epoch : 79
+Processing epoch : 80
+Processing epoch : 81
+Processing epoch : 82
+Processing epoch : 83
+Processing epoch : 84
+Processing epoch : 85
+Processing epoch : 86
+Processing epoch : 87
+Processing epoch : 88
+Processing epoch : 89
+Processing epoch : 90
+Processing epoch : 91
+Processing epoch : 92
+Processing epoch : 93
+Processing epoch : 94
+Processing epoch : 95
+Processing epoch : 96
+Processing epoch : 97
+Processing epoch : 98
+Processing epoch : 99
+Processing epoch : 100
+Processing epoch : 101
+Processing epoch : 102
+Processing epoch : 103
+Processing epoch : 104
+Processing epoch : 105
+Processing epoch : 106
+Processing epoch : 107
+Processing epoch : 108
+Processing epoch : 109
+Processing epoch : 110
+Processing epoch : 111
+Processing epoch : 112
+Processing epoch : 113
+Processing epoch : 114
+Processing epoch : 115
+Processing epoch : 116
+Processing epoch : 117
+Processing epoch : 118
+Processing epoch : 119
+Processing epoch : 120
+Processing epoch : 121
+Processing epoch : 122
+Processing epoch : 123
+Processing epoch : 124
+Processing epoch : 125
+Processing epoch : 126
+Processing epoch : 127
+Processing epoch : 128
+Processing epoch : 129
+Processing epoch : 130
+Processing epoch : 131
+Processing epoch : 132
+Processing epoch : 133
+Processing epoch : 134
+Processing epoch : 135
+Processing epoch : 136
+Processing epoch : 137
+Processing epoch : 138
+Processing epoch : 139
+Processing epoch : 140
+Processing epoch : 141
+Processing epoch : 142
+Processing epoch : 143
+Processing epoch : 144
+Processing epoch : 145
+Processing epoch : 146
+Processing epoch : 147
+Processing epoch : 148
+Processing epoch : 149
+Processing epoch : 150
+Processing epoch : 151
+Processing epoch : 152
+Processing epoch : 153
+Processing epoch : 154
+Processing epoch : 155
+Processing epoch : 156
+Processing epoch : 157
+Processing epoch : 158
+Processing epoch : 159
+Processing epoch : 160
+Processing epoch : 161
+Processing epoch : 162
+Processing epoch : 163
+Processing epoch : 164
+Processing epoch : 165
+Processing epoch : 166
+Processing epoch : 167
+Processing epoch : 168
+Processing epoch : 169
+Processing epoch : 170
+Processing epoch : 171
+Processing epoch : 172
+Processing epoch : 173
+Processing epoch : 174
+Processing epoch : 175
+Processing epoch : 176
+Processing epoch : 177
+Processing epoch : 178
+Processing epoch : 179
+Processing epoch : 180
+Processing epoch : 181
+Processing epoch : 182
+Processing epoch : 183
+Processing epoch : 184
+Processing epoch : 185
+Processing epoch : 186
+Processing epoch : 187
+Processing epoch : 188
+Processing epoch : 189
+Processing epoch : 190
+Processing epoch : 191
+Processing epoch : 192
+Processing epoch : 193
+Processing epoch : 194
+Processing epoch : 195
+Processing epoch : 196
+Processing epoch : 197
+Processing epoch : 198
+Processing epoch : 199
+Processing epoch : 200
+Processing epoch : 201
+Processing epoch : 202
+Processing epoch : 203
+Processing epoch : 204
+Processing epoch : 205
+Processing epoch : 206
+Processing epoch : 207
+Processing epoch : 208
+Processing epoch : 209
+Processing epoch : 210
+Processing epoch : 211
+Processing epoch : 212
+Processing epoch : 213
+Processing epoch : 214
+Processing epoch : 215
+Processing epoch : 216
+Processing epoch : 217
+Processing epoch : 218
+Processing epoch : 219
+Processing epoch : 220
+Processing epoch : 221
+Processing epoch : 222
+Processing epoch : 223
+Processing epoch : 224
+Processing epoch : 225
+Processing epoch : 226
+Processing epoch : 227
+Processing epoch : 228
+Processing epoch : 229
+Processing epoch : 230
+Processing epoch : 231
+Processing epoch : 232
+Processing epoch : 233
+Processing epoch : 234
+Processing epoch : 235
+Processing epoch : 236
+Processing epoch : 237
+Processing epoch : 238
+Processing epoch : 239
+Processing epoch : 240
+Processing epoch : 241
+Processing epoch : 242
+Processing epoch : 243
+Processing epoch : 244
+Processing epoch : 245
+Processing epoch : 246
+Processing epoch : 247
+Processing epoch : 248
+Processing epoch : 249
+Processing epoch : 250
+Processing epoch : 251
+Processing epoch : 252
+Processing epoch : 253
+Processing epoch : 254
+Processing epoch : 255
+Processing epoch : 256
+Processing epoch : 257
+Processing epoch : 258
+Processing epoch : 259
+Processing epoch : 260
+Processing epoch : 261
+Processing epoch : 262
+Processing epoch : 263
+Processing epoch : 264
+Processing epoch : 265
+Processing epoch : 266
+Processing epoch : 267
+Processing epoch : 268
+Processing epoch : 269
+Processing epoch : 270
+Processing epoch : 271
+Processing epoch : 272
+Processing epoch : 273
+Processing epoch : 274
+Processing epoch : 275
+Processing epoch : 276
+Processing epoch : 277
+Processing epoch : 278
+Processing epoch : 279
+Processing epoch : 280
+Processing epoch : 281
+Processing epoch : 282
+Processing epoch : 283
+Processing epoch : 284
+Processing epoch : 285
+Processing epoch : 286
+Processing epoch : 287
+Processing epoch : 288
+Processing epoch : 289
+Processing epoch : 290
+Processing epoch : 291
+Processing epoch : 292
+Processing epoch : 293
+Processing epoch : 294
+Processing epoch : 295
+Processing epoch : 296
+Processing epoch : 297
+Processing epoch : 298
+Processing epoch : 299
+Processing epoch : 300
+Processing epoch : 301
+Processing epoch : 302
+Processing epoch : 303
+Processing epoch : 304
+Processing epoch : 305
+Processing epoch : 306
+Processing epoch : 307
+Processing epoch : 308
+Processing epoch : 309
+Processing epoch : 310
+Processing epoch : 311
+Processing epoch : 312
+Processing epoch : 313
+Processing epoch : 314
+Processing epoch : 315
+Processing epoch : 316
+Processing epoch : 317
+Processing epoch : 318
+Processing epoch : 319
+Processing epoch : 320
+Processing epoch : 321
+Processing epoch : 322
+Processing epoch : 323
+Processing epoch : 324
+Processing epoch : 325
+Processing epoch : 326
+Processing epoch : 327
+Processing epoch : 328
+Processing epoch : 329
+Processing epoch : 330
+Processing epoch : 331
+Processing epoch : 332
+Processing epoch : 333
+Processing epoch : 334
+Processing epoch : 335
+Processing epoch : 336
+Processing epoch : 337
+Processing epoch : 338
+Processing epoch : 339
+Processing epoch : 340
+Processing epoch : 341
+Processing epoch : 342
+Processing epoch : 343
+Processing epoch : 344
+Processing epoch : 345
+Processing epoch : 346
+Processing epoch : 347
+Processing epoch : 348
+Processing epoch : 349
+Processing epoch : 350
+Processing epoch : 351
+Processing epoch : 352
+Processing epoch : 353
+Processing epoch : 354
+Processing epoch : 355
+Processing epoch : 356
+Processing epoch : 357
+Processing epoch : 358
+Processing epoch : 359
+Processing epoch : 360
+Processing epoch : 361
+Processing epoch : 362
+[done]
+bootstrap_id 30
+Reading /data2/tarrlab/MEG_NEIL/roi_ks/Subj8_tmp_evoked-ave.fif.gz ...
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+    Found the data of interest:
+        t =    -100.00 ...    1000.00 ms (No comment)
+        0 CTF compensation matrices available
+        nave = 199 - aspect type = 100
+Projections have already been applied. Setting proj attribute to True.
+No baseline correction applied
+True
+Reading forward solution from /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/Subj8/Subj8_ico-4_run1-fwd.fif...
+    Reading a source space...
+    [done]
+    Reading a source space...
+    [done]
+    2 source spaces read
+    Desired named matrix (kind = 3523) not available
+    Read MEG forward solution (5123 sources, 306 channels, free orientations)
+    Source spaces transformed to the forward solution coordinate frame
+    Changing to fixed-orientation forward solution with surface-based source orientations...
+    [done]
+    306 x 306 full covariance (kind = 1) found.
+    Read a total of 5 projection items:
+        planar-Raw-0.000-287.000-PCA-01 (1 x 203) active
+        planar-Raw-0.000-287.000-PCA-02 (1 x 203) active
+        axial-Raw-0.000-287.000-PCA-01 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-02 (1 x 102) active
+        axial-Raw-0.000-287.000-PCA-03 (1 x 102) active
+fixed orient
+True
+difference of G
+5.31589e+08
+Computing inverse operator with 306 channels.
+    Created an SSP operator (subspace dimension = 5)
+estimated rank (mag + grad): 301
+Setting small MEG eigenvalues to zero.
+Not doing PCA for MEG.
+Reducing data rank to 301
+Total rank is 301
+Whitening lead field matrix.
+Gamma0_ls and Gamma_ls
+[[  1.73724693e-06   0.00000000e+00]
+ [  8.21116666e-08   9.12358193e-07]]
+[[  2.03481688e-06   0.00000000e+00]
+ [  6.63928893e-08   1.24483181e-06]]
+optimizing 1 initializations
+ EM MaxIter achieved
+[ 14610085.80771953]
+ EM MaxIter achieved
+14605095.6061

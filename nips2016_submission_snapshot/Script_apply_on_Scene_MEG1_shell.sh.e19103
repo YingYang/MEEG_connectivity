@@ -1,0 +1,4 @@
+/home/yingyan1/source_roi_cov/get_estimate_baseline.py:77: RuntimeWarning: The events passed to the Epochs constructor are not chronologically ordered.
+  tmin =  evoked.times[0], event_id = None, reject = None)
+/home/yingyan1/source_roi_cov/get_estimate_baseline.py:84: RuntimeWarning: When invoking make_inverse_operator with fixed=True, the loose parameter is ignored.
+  loose = 0.0, depth = depth,fixed = True)

@@ -7,18 +7,13 @@ import copy
 
 # this part to be optimized? chang it to a package?
 path = "/home/ying/Dropbox/MEG_source_loc_proj/source_roi_cov/"
-sys.path.insert(0, path)
-from ROI_cov_Kronecker import sample_kron_cov                        
-import matplotlib.pyplot as plt
-
+sys.path.insert(0, path)                       
 # MEG only for now
-def get_simu_data(q,T, anat_ROI_names, outpath,
-                            QUcov, Tcov, Sigma_J_list, 
-                            L_list_option = 0,
-                            L_list_param = None,
-                            normalize_G_flag = False,
-                            snr = 1.0, sensor_iir_flag = False,
-                            cov_out_dir = "/home/ying/Dropbox/tmp/ROI_cov_simu/"):
+def get_simu_data_ks(q,T, labels, outpath,
+                  A, Q, Q0, Sigma_J_list, 
+                  L_list_option = 0, L_list_param = None,
+                  normalize_G_flag = False,
+                  snr = 1.0):
     """
     Simulate stationary data with Kronecker cov, 
     using the mne sample subject, and freeserfer aparc 68 parcellation
@@ -30,17 +25,19 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
         q, number of trials
         T, number of time points in each trial, 
             assume each time point = 10 ms
-        anat_ROI_names, indices of ROIs, length p
+        labels, list of labels, length p
         outpath, full path of the output file name to write the simulated data,
                  no suffix of .mat or .fif
-        Qu, [p,p], covariance matrix of ROI latents
-        Tcov, [T,T], temporal covariance matrix
+        A,[T,p,p], the time-varying autoregressive matrix
+        Q, [p,p], PSD covariance of the ROI error
+        Q0, [p,p], initial covariance of the ROI latent variables
         Sigma_J_list, [p+1]
         L_list_option: 0: all 1
                        1: sign flip +/-1 according to the eigen normal direction
                        2: svd weights
                        3: Gaussian, zero_mean
         L_list_param, scalar, used to control the prior covariance of L
+        labels: list of label file paths, if None?
         normalize_G_flag, if True, normalize the G matrix, then scale J correspondingly
         snr = 1.0, sensor space SNR
         sensor_iir_flag, if True, use iir filter for sensor nosie, else, not
@@ -79,22 +76,17 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     
     #========label index =============
     src = fwd['src']
-    subjects_dir = data_path + '/subjects'
-    labels = mne.read_labels_from_annot('sample', parc='aparc',
-                                    subjects_dir=subjects_dir)
-    label_subset = [label for label in labels if label.name in anat_ROI_names]
     ROI_list = list() 
     ROI0_ind = np.arange(0, m, dtype = np.int)
-    for i in range(len(label_subset)):
-        _, sel = mne.source_space.label_src_vertno_sel(label_subset[i],src)
+    for i in range(len(labels)):
+        _, sel = mne.source_space.label_src_vertno_sel(labels[i],src)
         ROI_list.append(sel)
         ROI0_ind = np.setdiff1d(ROI0_ind, sel)
     ROI_list.append(ROI0_ind)
     n_ROI = len(ROI_list)
     n_ROI_valid = n_ROI-1
-    
-    
-    p = QUcov.shape[0]
+
+    p = Q.shape[0]
     if p != n_ROI_valid or len(Sigma_J_list)-1!= p :
         raise ValueError("covariance size does not match ROI sets")
     
@@ -126,33 +118,32 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
             L_list[i] = tmp 
             Q_L_list[i] = tmp_cov
    
-
-    U = sample_kron_cov(Tcov, QUcov, n_sample = q)
-    L = np.zeros([m, n_ROI_valid])
-    for i in range(n_ROI_valid):
-        L[ROI_list[i], i] = L_list[i]
-        
-    Sigma_J = np.zeros(m)
-    for i in range(n_ROI):
-        Sigma_J[ROI_list[i]] = Sigma_J_list[i]    
+    # generate U
+    u = np.zeros([q, p, T+1])
+    for r in range(q):
+        u[r,:,0] = np.random.multivariate_normal(np.zeros(p), Q0)
+        for t in range(1,T+1):
+            tmpA = A[t-1].copy() 
+            u[r,:,t] = np.random.multivariate_normal(np.zeros(p), Q) + tmpA.dot(u[r,:,t-1])
+           
             
-    J = np.zeros([q,m,T])
+    J = np.zeros([q,m,T+1])
     for i in range(n_ROI_valid):
         for j in range(len(ROI_list[i])):
-            J[:,ROI_list[i][j],:] = L_list[i][j]*U[:,i,:] + (sample_kron_cov(Tcov, np.eye(1)*Sigma_J_list[i], n_sample = q))[:,0,:]
+            J[:,ROI_list[i][j],:] = L_list[i][j]*u[:,i,:] \
+                  + np.random.randn(q, T+1)*np.sqrt(Sigma_J_list[i])
     if n_ROI_valid < n_ROI:
         i = -1
-        for j in range(len(ROI_list[i])):
-            J[:,ROI_list[i][j],:] = (sample_kron_cov(Tcov, np.eye(1)*Sigma_J_list[i], n_sample = q))[:,0,:]
-    
+        J[:,ROI_list[i],:] = np.random.randn(q, len(ROI_list[i]), T+1)*np.sqrt(Sigma_J_list[i])
+
     J = (J.transpose([0,2,1])*source_weight).transpose([0,2,1])
-    
-    
-    raw = mne.io.Raw(data_path + '/MEG/sample/sample_audvis_raw.fif')
-    picks = mne.pick_types(raw.info, meg=True)
     
     cov_fname = data_path + '/MEG/sample/sample_audvis-cov.fif'
     noise_cov = mne.read_cov(cov_fname)
+    raw = mne.io.Raw(data_path + '/MEG/sample/sample_audvis_raw.fif')
+    
+    raw.info['bads'] = noise_cov['bads']
+    picks = mne.pick_types(raw.info, meg=True)
     sel_cov = [l for l in range(len(noise_cov.ch_names)) \
           if l in picks \
           and noise_cov.ch_names[l] not in noise_cov['bads']]
@@ -163,7 +154,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     Sigma_E_chol = np.linalg.cholesky(Sigma_E)
     G = fwd['sol']['data'][picks,:]
     n = G.shape[0]
-    noise_M = np.dot(Sigma_E_chol, np.random.randn(q,n,T))
+    noise_M = np.dot(Sigma_E_chol, np.random.randn(q,n,(T+1)))
     M = (np.dot(G, J) + noise_M).transpose([1,0,2])
     
 
@@ -172,8 +163,8 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     noise_cov_new = mne.cov.Covariance(data = Sigma_E, names = noise_cov_ch_names,
                                        bads = noise_cov['bads'], projs = [], nfree = len(picks),
                                         eig = None, eigvec = None, method = None)
-    # save the noise_cov                                   
-    cov_fname = cov_out_dir + "noise_cov-cov.fif"
+    # save the noise_cov
+    cov_fname = "/home/ying/Dropbox/tmp/ROI_cov_simu/noise_cov-cov.fif"
     noise_cov_new.save(cov_fname)
     
     # save an evoked data
@@ -187,11 +178,10 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     evoked.info['bads'] = raw.info['bads'][0:1]
     evoked.save(outpath+"-ave.fif.gz")    
 
-    mat_dict = dict(J = J, M = M, U = U, G = G,
-                anat_ROI_names = anat_ROI_names,
+    mat_dict = dict(J = J, M = M, u = u, G = G,
                 fwd_path = fwd_fname,
                 ROI_list = ROI_list,
-                QUcov = QUcov, Tcov = Tcov, 
+                A = A, Q = Q, Q0 = Q0,
                 Sigma_J_list = Sigma_J_list,
                 L_list = L_list,
                 L_list_option = L_list_option,
@@ -200,30 +190,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
                 Sigma_E = Sigma_E)
     scipy.io.savemat(outpath+".mat", mat_dict, oned_as = "row")
 
-    
-    #debug:
-    if True:       
-        t_ind = T//2+1
-        MMT = M[:,:,t_ind].T.dot(M[:,:,t_ind]) 
-        
-        Sigma_J = np.zeros(m)
-        for i in range(n_ROI):
-            Sigma_J[ROI_list[i]] = Sigma_J_list[i]
-        L = np.zeros([m, n_ROI_valid])
-        for i in range(n_ROI_valid):
-            L[ROI_list[i], i] = L_list[i] 
-        GL = np.dot(G,L) 
-        covM = MMT/q
-    
-        cov_ana = Sigma_E + np.dot(G, np.diag(Sigma_J)).dot(G.T) + np.dot(GL, QUcov).dot(GL.T)
-        plt.figure()
-        plt.subplot(1,3,1);plt.imshow(covM, interpolation = "none");plt.colorbar()
-        plt.subplot(1,3,2);plt.imshow(cov_ana, interpolation = "none");plt.colorbar()
-        plt.subplot(1,3,3);plt.imshow(cov_ana-covM, interpolation = "none");plt.colorbar()
-        print np.linalg.norm(covM-cov_ana)/np.linalg.norm(covM)
-        print np.linalg.norm(covM-cov_ana)
-        plt.figure();plt.plot(covM.ravel(), cov_ana.ravel(), '.');
-        
+ 
         
         
         

@@ -17,8 +17,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
                             L_list_option = 0,
                             L_list_param = None,
                             normalize_G_flag = False,
-                            snr = 1.0, sensor_iir_flag = False,
-                            cov_out_dir = "/home/ying/Dropbox/tmp/ROI_cov_simu/"):
+                            snr = 1.0, sensor_iir_flag = False):
     """
     Simulate stationary data with Kronecker cov, 
     using the mne sample subject, and freeserfer aparc 68 parcellation
@@ -172,8 +171,8 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     noise_cov_new = mne.cov.Covariance(data = Sigma_E, names = noise_cov_ch_names,
                                        bads = noise_cov['bads'], projs = [], nfree = len(picks),
                                         eig = None, eigvec = None, method = None)
-    # save the noise_cov                                   
-    cov_fname = cov_out_dir + "noise_cov-cov.fif"
+    # save the noise_cov
+    cov_fname = "/home/ying/Dropbox/tmp/ROI_cov_simu/noise_cov-cov.fif"
     noise_cov_new.save(cov_fname)
     
     # save an evoked data

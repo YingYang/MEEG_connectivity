@@ -106,7 +106,6 @@ def get_estimate_baseline(M, ROI_list, n_ROI_valid, fwd_path, evoked_path, noise
         tmpu,tmpd, tmpv = np.linalg.svd(tmp_nn)
         signs = np.sign(np.dot(tmp_nn, tmpv[0,:])) if flag_sign_flip else np.ones(len(tmp_ind))
         for r in range(q):
-            # something is wrong here, I did not take the mean???? only the sum?
             ROI_U[r,i,:] = np.sum(stcs[r].data[tmp_ind].T*signs, axis = 1)
             Sigma_J_list_hat[i] += np.var( (stcs[r].data[tmp_ind].T*signs).T - ROI_U[r,i,:])
         Sigma_J_list_hat[i] /= np.float(q)

@@ -15,91 +15,66 @@ matplotlib.rcParams['ps.fonttype'] = 42
 
 #matplotlib.use('Agg')                    
 import matplotlib.pyplot as plt
-plt.rcParams['image.cmap'] = 'plasma'
+plt.rcParams['image.cmap'] = 'inferno'
 #from get_simu_data_ks import get_simu_data_ks
 from ROI_Kalman_smoothing import get_cov_u
 
-
-outdir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_MAT/source_connectivity/roi_ks/"
-isMEG = True
-MEGorEEG = ['EEG','MEG']
-
-
-if isMEG:
-    subj_list = [1,2,3,5,6,7,9]
-    btstrp_seq = [20,20,20,20,20,8,20]
-else:
-    pass
-    
-
+subj_list = [1,2,3,4,5,6,7,8,9,10,12,13]
 n_subj = len(subj_list)
-
+outdir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_MAT/source_connectivity/roi_ks/"
 pairs = [[0,0],[1,1],[0,1]]
 #pairs = [[0,0],[1,1],[2,2],[0,1],[0,2],[1,2]]
 m1,m2 = 1,3
 n_pairs = len(pairs)
     
+B = 10
 mne_method = 'MNE'
 ROI_bihemi_names = [ 'pericalcarine', 'PPA_c_g'] #, 'LO_c_g']
-label_names = ['EVC','PPA']
+#for i0 in range(n_subj):
+print "B = %d" %B
+
+
 p = len(ROI_bihemi_names)
+
 method_string = ['ks','dspm']
 flag_cov_from_u = False
-fig_outdir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/figs/source_conn/roi_ks/" 
+fig_outdir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/figs/source_conn/roi_ks/"  
 
-fname_suffix = "1_110Hz_notch_ica_ave_alpha15.0_no_aspect"
-
-
-T0 = 85
-A_est_all = np.zeros([2, n_subj, T0, p,p])
-A_se_all  = np.zeros([2, n_subj, T0, p,p])
-
-tildaA_all = np.zeros([2, n_subj, T0, T0])
-tildaA_Z_all   = np.zeros([2, n_subj, T0, T0])
-
-
-for i in range(n_subj):
-    subj = "Subj%d" %subj_list[i]
-    tmp_bootstrap_seq = range(btstrp_seq[i])
-    n_bt = len(tmp_bootstrap_seq)
+label_names = ['EVC','PPA']
+p = len(label_names)
+if True:
+    i0 = 7
+    subj = "Subj%d" %subj_list[i0]
+    print subj
     
-    MEG_data_dir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/DATA/"
-    EEG_data_dir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/EEG_DATA/DATA/"
-
-    if isMEG:
-        fwd_path = MEG_data_dir + "fwd/%s/%s_ave-fwd.fif" %(subj, subj)
-        epochs_path = MEG_data_dir + "epoch_raw_data/%s/%s_run1_filter_1_110Hz_notch_ica-epo.fif.gz" %(subj,subj)
-        ave_mat_path =  MEG_data_dir + "epoch_raw_data/%s/%s_%s.mat" %(subj,  subj, fname_suffix)
-    else:
-        fwd_path = EEG_data_dir + "%s_EEG/%s_EEG_oct-6-fwd.fif" %(subj, subj)      
-        epochs_path = EEG_data_dir + "epoch_raw_data/%s_EEG/%s_EEG_filter_1_110Hz_notch_ica_reref-epo.fif.gz" %(subj,subj)
-        ave_mat_path =  EEG_data_dir + "epoch_raw_data/%s_EEG/%s_EEG_%s.mat" %(subj,  subj, fname_suffix)    
+    #for i0 in range(n_subj):
+    #subj = "Subj%d" %subj_list[i0]  
     
     # load the time indices
+    ave_mat_path = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/DATA/epoch_raw_data/"\
+                     + "%s/%s_%s" %(subj,  subj, "1_110Hz_notch_ica_ave_alpha15.0.mat")
     mat_dict = scipy.io.loadmat(ave_mat_path)
     times = mat_dict['times'][0]
     del(mat_dict)
-    offset = 0.04 if isMEG else 0.00
-    time_ind = np.all(np.vstack([times >= -0.06, times <= 0.80 ]), axis = 0)
+    offset = 0.04
+    time_ind = np.all(np.vstack([times >= -0.06, times <= 0.74 ]), axis = 0)
     times_in_ms = (times[time_ind]-offset)*1000.0
     print len(times_in_ms)    
     T = len(times_in_ms)-1
     
  
-    A_cell = np.zeros([2,n_bt,T,p,p])
-    lagged_corr = np.zeros([2,n_bt,n_pairs,T+1,T+1])
-    lagged_inv = np.zeros([2, n_bt, n_pairs,T+1,T+1])
-    std_u = np.zeros([2, n_bt,T+1,p])
-    tilda_A_entry = np.zeros([2,n_bt,n_pairs, T,T])
+    A_cell = np.zeros([2,B+1,T,p,p])
+    lagged_corr = np.zeros([2,B+1,n_pairs,T+1,T+1])
+    lagged_inv = np.zeros([2, B+1, n_pairs,T+1,T+1])
+    std_u = np.zeros([2, B+1,T+1,p])
+    tilda_A_entry = np.zeros([2,B+1,n_pairs, T,T])
     for l in range(2):
-        for i00 in range(n_bt):
-            bootstrap_id = tmp_bootstrap_seq[i00]
-            out_name = outdir + "%s_%s_%s_%s_sol_bootstrp%d.mat" % (subj, 
-                    "EVC_PPA", MEGorEEG[isMEG], method_string[l],bootstrap_id)
+        for bootstrap_id in range(B+1):
+            out_name = outdir + "%s_%s_sol_bootstrp%d.mat" % (subj, method_string[l],bootstrap_id)
             result = scipy.io.loadmat(out_name)
-            A_cell[l,i00, :,:,:] = result['A_hat']
+            A_cell[l,bootstrap_id, :,:,:] = result['A_hat']
             u_array_hat = result['u_array_hat']
-            std_u[l,i00] = np.std(u_array_hat, axis = 0)
+            std_u[l,bootstrap_id] = np.std(u_array_hat, axis = 0)
             
             if flag_cov_from_u:       
                 cov_u = np.cov(u_array_hat.reshape([u_array_hat.shape[0], -1]).T)    
@@ -107,21 +82,22 @@ for i in range(n_subj):
                 cov_u = get_cov_u(result['Q0_hat'], result['A_hat'], result['Q_hat'], T, 
                                   flag_A_time_vary = True) # pT x pT, p first 
             paired_lags = np.zeros([n_pairs, (T+1), (T+1)])
-            for ii in range(n_pairs):
+            for i in range(n_pairs):
                 for t1 in range(T+1):
                     for t2 in range(T+1):
-                        paired_lags[ii,t1,t2] = cov_u[t1*p+pairs[ii][0], t2*p+pairs[ii][1]]\
-                        /np.sqrt(cov_u[t1*p+pairs[ii][0], t1*p+pairs[ii][0]])/ np.sqrt(cov_u[t2*p+pairs[ii][1], t2*p+pairs[ii][1]])
-                lagged_corr[l, i00] = paired_lags            
+                        paired_lags[i,t1,t2] = cov_u[t1*p+pairs[i][0], t2*p+pairs[i][1]]\
+                        /np.sqrt(cov_u[t1*p+pairs[i][0], t1*p+pairs[i][0]])/ np.sqrt(cov_u[t2*p+pairs[i][1], t2*p+pairs[i][1]])
+                lagged_corr[l, bootstrap_id] = paired_lags            
             inv_cov_u = np.linalg.inv(cov_u)
             #plt.figure(); plt.imshow(inv_cov_u, interpolation = "none"); plt.colorbar();
             paired_lags_inv = np.zeros([n_pairs, (T+1), (T+1)])
-            for ii in range(n_pairs):
+            for i in range(n_pairs):
                 for t1 in range(T+1):
                     for t2 in range(T+1):
-                        paired_lags_inv[ii,t1,t2] = inv_cov_u[t1*p+pairs[ii][0], t2*p+pairs[ii][1]]
-                lagged_inv[l, i00] = paired_lags_inv
-
+                        paired_lags_inv[i,t1,t2] = inv_cov_u[t1*p+pairs[i][0], t2*p+pairs[i][1]]
+                lagged_inv[l, bootstrap_id] = paired_lags_inv
+            
+            
             # compute u_i1 = \tilda A u_i2
             print "computing lagged A entries"
             tilde_A = np.zeros([T,T],dtype = np.object)  
@@ -134,24 +110,25 @@ for i in range(n_subj):
                     for l0 in range(j0,i0-1,-1):
                         tmp = (np.dot(tmp, A[l0])).copy()
                     tilde_A[i0,j0] = tmp
-            for ii in range(n_pairs):
+            for i in range(n_pairs):
                 for t1 in range(T):
                     for t2 in range(T):
                         if t1<= t2:
-                            tilda_A_entry[l,i00, ii,t1,t2] = tilde_A[t1,t2][pairs[ii][1], pairs[ii][0]]
+                            #print t1, t2,i,n_pairs
+                            #print tilde_A[t1,t2]
+                            #print pairs[i][1], pairs[i][0]
+                            # region 1-> region 2  upper diagonal leadding
+                            tilda_A_entry[l,bootstrap_id, i,t1,t2] = tilde_A[t1,t2][pairs[i][1], pairs[i][0]]
                         else:
                             # region 2 -> region 1 lower diangonal feedback
-                            tilda_A_entry[l,i00, ii,t1,t2] = tilde_A[t2,t1][pairs[ii][0], pairs[ii][1]]
+                            tilda_A_entry[l,bootstrap_id, i,t1,t2] = tilde_A[t2,t1][pairs[i][0], pairs[i][1]]
             del(result)
-
+            
+    
     # plot the all parts in A, with bootstrap CI
     print "plotting A"
     A_est = A_cell[:,0]
     A_se = np.std(A_cell[:,1::], axis = 1)
-    
-    # save into the all matrix
-    A_est_all[:,i,:,:,:] = A_est
-    A_se_all[:,i,:,:,:] = A_se
     
     var_u_est = std_u[:,0]**2
     var_u_se = np.std(std_u[:,1::]**2, axis = 1)
@@ -232,7 +209,6 @@ for i in range(n_subj):
         
     print "plotting lagged cov"
     # plot the lagged correlation:
-    """
     lag_list = [lagged_corr, lagged_inv]
     lag_names = ['corr','inv']
     vmin, vmax = 0,10
@@ -261,20 +237,17 @@ for i in range(n_subj):
                     #_= plt.xlabel('ms')
                     #_= plt.ylabel('ms')
                 plt.tight_layout()
-                #fig_name = fig_outdir + "%s_%s_%s_thresh%d.pdf" %(subj, method_string[l], lag_names[j], flag_thresh)
-                #plt.savefig(fig_name)
-                #plt.close()
-    """           
+                fig_name = fig_outdir + "%s_%s_%s_thresh%d.pdf" %(subj, method_string[l], lag_names[j], flag_thresh)
+                plt.savefig(fig_name)
+                plt.close()
     
     #T_thresh = np.abs(scipy.stats.norm.ppf(0.1/2.0/np.float(T+1)**2)) 
     # only do the relevant pairs
-       
-    
     alpha = 0.05
     pair_id = 2    
     vmin, vmax = 0, 10
     figsize = (4.6,4)
-    fdr_flag = True
+    fdr_flag = False
     for flag_thresh in [True, False]:
         for l in range(2):
             print "saving tilde A"          
@@ -284,8 +257,6 @@ for i in range(n_subj):
             tmp_T = est/se
             tmp_T[np.isnan(tmp_T)] = 0
             tmp_T[np.isinf(tmp_T)] = 0
-            
-            tildaA_Z_all[l,i] = tmp_T
             # bonferroni of T 
             if flag_thresh:
                 # use FDR
@@ -296,7 +267,7 @@ for i in range(n_subj):
                     tmp_T1 = np.abs(tmp_T)
                     tmp_T1[np.reshape(reject, [T,T]) == 0] = 0.0
                 else:
-                    T_thresh = np.abs(scipy.stats.norm.ppf(alpha/2.0/tmp_T.size))
+                    T_thresh = np.abs(scipy.stats.norm.ppf(alpha/2.0/np.float(T+1)**2))
                     tmp_T1 = np.abs(tmp_T)
                     tmp_T1[tmp_T1<=T_thresh] = 0
             else:
@@ -306,18 +277,15 @@ for i in range(n_subj):
             _= plt.imshow(tmp_T1, interpolation = "none", aspect = "auto", 
                        extent = [times_in_ms[0], times_in_ms[-1], 
                     times_in_ms[0], times_in_ms[-1]],origin= "lower", vmin = vmin, vmax = vmax)
-            _=plt.ylabel(label_names[pairs[pair_id][0]]+ " time (ms)"); 
-            _=plt.xlabel(label_names[pairs[pair_id][1]]+ " time (ms)")
+            _=plt.ylabel(label_names[pairs[i][0]]+ " time (ms)"); 
+            _= plt.xlabel(label_names[pairs[i][1]]+" time (ms)")
             _=plt.colorbar()
             plt.tight_layout()
             fig_name = fig_outdir + "%s_%s_%s_thresh%d_fdr%d.pdf" %(subj, method_string[l], 'tildeA', flag_thresh, fdr_flag)
             plt.savefig(fig_name)
             plt.close()
-            
-    tildaA_all[:,i] = tilda_A_entry[:,0,pair_id,:,:] 
     
-    # just show the estimated tildeA alone
-    """
+    # just show the estimated tildeA alone   
     for l in range(2):
         plt.figure(figsize = (13,3))
         for i in range(n_pairs):
@@ -333,83 +301,30 @@ for i in range(n_subj):
         fig_name = fig_outdir + "%s_%s_%s_est.pdf" %(subj, method_string[l], 'tildeA')
         plt.savefig(fig_name)
         plt.close()
-    """
         
     # show tildeA, every bootstrap
-    """
-    for l in range(2):
-        for bootstrap_id in range(B):
-            plt.figure(figsize = (13,3))
-            for i in range(n_pairs):
-                _= plt.subplot(m1,m2,i+1)
-                _= plt.imshow(tilda_A_entry[l,bootstrap_id+1,i], interpolation = "none", aspect = "auto", 
-                           extent = [times_in_ms[0], times_in_ms[-1], 
-                        times_in_ms[0], times_in_ms[-1]],origin= "lower", vmin = None, vmax = None)
-                _=plt.ylabel(label_names[pairs[i][0]] + " time (ms)"); 
-                plt.xlabel(label_names[pairs[i][1]] + "time (ms)")
-                _=plt.colorbar()
-                #_= plt.xlabel('ms')
-                #_= plt.ylabel('ms')
-            plt.tight_layout()
-            fig_name = fig_outdir + "%s_%s_%s_bt%d.pdf" %(subj, method_string[l], 'tildeA', bootstrap_id+1)
-            plt.savefig(fig_name)
-            plt.close()
-    """
+    # just show the estimated tildeA alone
+    if False:
+        for l in range(2):
+            for bootstrap_id in range(B):
+                plt.figure(figsize = (13,3))
+                for i in range(n_pairs):
+                    _= plt.subplot(m1,m2,i+1)
+                    _= plt.imshow(tilda_A_entry[l,bootstrap_id+1,i], interpolation = "none", aspect = "auto", 
+                               extent = [times_in_ms[0], times_in_ms[-1], 
+                            times_in_ms[0], times_in_ms[-1]],origin= "lower", vmin = None, vmax = None)
+                    _=plt.ylabel(label_names[pairs[i][0]] + " time (ms)"); 
+                    plt.xlabel(label_names[pairs[i][1]] + "time (ms)")
+                    _=plt.colorbar()
+                    #_= plt.xlabel('ms')
+                    #_= plt.ylabel('ms')
+                plt.tight_layout()
+                fig_name = fig_outdir + "%s_%s_%s_bt%d.pdf" %(subj, method_string[l], 'tildeA', bootstrap_id+1)
+                plt.savefig(fig_name)
+                plt.close()
     
-    
-    
-    #======== 20160720 added,  stability of A
-    """
-    # stability of A
-    # get the modulus of the eigenvalues for A_cell[:,0]
-    max_abs_eig = np.zeros([2,T])
-    for l0 in range(2):
-        for t in range(T):
-            max_abs_eig[l0,t] = np.abs(np.linalg.eig(A_est[l0][t])[0]).max() 
-    plt.plot(times_in_ms[1::], max_abs_eig.T)
-    # variance explained, see another file
-    """
 
-# tildaA_all
-#tilda_value = tildaA_Z_all
-tilda_value = tildaA_all
-#tilda_value = np.abs(tildaA_Z_all)
-tildaA_T_across_subj = tilda_value.mean(axis = 1)/np.std(tilda_value.std(axis = 1))*np.sqrt(n_subj) 
-vmin, vmax = 0, None   
-for l in range(2):
-    plt.figure(figsize = figsize)
-    _= plt.imshow(np.abs(tildaA_T_across_subj[l]), interpolation = "none", aspect = "auto", 
-               extent = [times_in_ms[0], times_in_ms[-1], 
-            times_in_ms[0], times_in_ms[-1]],origin= "lower", vmin = vmin, vmax = vmax)
-    _=plt.ylabel(label_names[pairs[pair_id][0]]+ " time (ms)"); 
-    _= plt.xlabel(label_names[pairs[pair_id][1]]+" time (ms)")
-    _=plt.colorbar()
-    plt.tight_layout()
-    
-# plot 
-#A_value = A_est_all
-A_value = A_est_all/A_se_all
 
-A_value_mean = A_value.mean(axis = 1)
-A_value_se = A_value.std(axis = 1)/np.sqrt(n_subj)
-
-ymin = None
-ymax = None
-alpha = scipy.stats.norm.ppf(1- 0.05/2)
-for l in range(2):
-    plt.figure()
-    count = 0
-    for l1 in range(p):
-        for l2 in range(p):
-            _= plt.subplot(p,p, count+1);
-            # first dim is method
-            _= plt.errorbar(times_in_ms[1::], A_value_mean[l,:,l1,l2], alpha*A_value_se[l,:,l1,l2])
-            _= plt.xlabel('time (ms)')
-            _= plt.title('A[:,%d,%d]'% (l1,l2))
-            _= plt.plot(times_in_ms[1::], np.zeros(T), 'k')
-            _= plt.ylim(ymin, ymax)
-            count += 1
-    #fig_name = fig_outdir + "%s_%s_A.pdf" %(subj, method_string[l])
-    plt.tight_layout()
-    #plt.savefig(fig_name)
-    #plt.close('all')
+            
+           
+   

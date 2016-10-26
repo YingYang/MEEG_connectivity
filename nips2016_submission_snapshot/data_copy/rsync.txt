@@ -1,0 +1,30 @@
+
+# before May 20 nips2016 deadline, I want a fast re-run of subject 8
+#=========== copy code ===========
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:/home/ying/Dropbox/MEG_source_loc_proj/source_roi_cov/  /home/yingyan1/source_roi_cov/ --dry-run
+
+#========
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:~/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_MAT/source_connectivity/roi_ks/Subj8*dspm* /data2/tarrlab/MEG_NEIL/roi_ks/ --dry-run
+
+
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:~/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_MAT/source_connectivity/roi_ks/btstrp_seq.mat /data2/tarrlab/MEG_NEIL/roi_ks/ --dry-run
+
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:/home/ying/dropbox_unsync/MEG_scene_neil/ROI_labels/ /data2/tarrlab/MEG_NEIL/roi_ks/ROI_labels/ 
+
+# fwd
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:~/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/DATA/fwd/ /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/fwd/ --dry-run
+
+# data
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:~/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/DATA/epoch_raw_data/ /data2/tarrlab/MEG_NEIL/MEG_preprocessed_data/epoch_raw_data/ --dry-run
+
+# noise cov
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_STC/STFTR/MEG/Subj8_STFT-R_MEGnoise_cov-cov.fif  /data2/tarrlab/MEG_NEIL/roi_ks/
+
+
+#20160722 NIPS rebuttal
+# bootstrap seq
+rsync -avz -e ssh ying@tarrlabb434.psy.cmu.edu:/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_STC/STFTR/MEG/Subj8_STFT-R_MEGnoise_cov-cov.fif  /data2/tarrlab/MEG_NEIL/roi_ks/
+
+rsync -avz  /data2/tarrlab/MEG_NEIL/roi_ks/btstrp_seq.mat -e ssh ying@tarrlabb434.psy.cmu.edu:/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_MAT/source_connectivity/roi_ks/ --dry-run
+
+
