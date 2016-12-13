@@ -17,7 +17,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
                             L_list_option = 0,
                             L_list_param = None,
                             normalize_G_flag = False,
-                            snr = 1.0, sensor_iir_flag = False,
+                            sensor_iir_flag = False,
                             cov_out_dir = "/home/ying/Dropbox/tmp/ROI_cov_simu/"):
     """
     Simulate stationary data with Kronecker cov, 
@@ -183,7 +183,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
     tmp_stc = mne.SourceEstimate(J[0], vertices = vertices, 
                                      tmin = tmin, tstep = tstep)
     evoked = mne.simulation.simulate_evoked(fwd, tmp_stc, raw.info, 
-                                noise_cov, snr, iir_filter= None, verbose = False)
+                                noise_cov, snr= 1.0, iir_filter= None, verbose = False)
     evoked.info['bads'] = raw.info['bads'][0:1]
     evoked.save(outpath+"-ave.fif.gz")    
 
@@ -202,7 +202,7 @@ def get_simu_data(q,T, anat_ROI_names, outpath,
 
     
     #debug:
-    if True:       
+    if False:       
         t_ind = T//2+1
         MMT = M[:,:,t_ind].T.dot(M[:,:,t_ind]) 
         

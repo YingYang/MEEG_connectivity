@@ -64,34 +64,52 @@ result_name =  [[result_dir + "nips2016_submission/Subj8_dspm_sol_bootstrp0.mat"
 
 # debug
 
+#=========== compare the boostraps 
+
+# the two btstrp were different!
+bstseq1 = scipy.io.loadmat(result_dir + "btstrp_seq.mat")
+bstseq2 = scipy.io.loadmat(result_dir + "nips2016_submission/btstrp_seq.mat")
+
+
+
 method = "dspm"
-result1 = scipy.io.loadmat(result_dir + "/Subj8_EVC_PPA_ico41_1_110Hz_notch_ica_ave_alpha15.0_no_aspect_MEG_%s_sol_bootstrp0.mat" %method )
-result2 = scipy.io.loadmat(result_dir + "/Subj8_EVC_PPA_ico41_1_110Hz_notch_ica_ave_alpha15.0_MEG_%s_sol_bootstrp0.mat" %method)
-result3 = scipy.io.loadmat(result_dir + "/20161024_8000_source/Subj8_EVC_PPA_MEG_%s_sol_bootstrp0.mat" %method)
-result0 = scipy.io.loadmat(result_dir + "nips2016_submission/Subj8_%s_sol_bootstrp0.mat" %method)
+#result1 = scipy.io.loadmat(result_dir + "/20161025_local_test_aspect_and_wrong_noise_cov/Subj8_EVC_PPA_ico41_1_110Hz_notch_ica_ave_alpha15.0_no_aspect_MEG_%s_sol_bootstrp0.mat" %method )
+#result2 = scipy.io.loadmat(result_dir + "/Subj8_EVC_PPA_ico41_1_110Hz_notch_ica_ave_alpha15.0_MEG_%s_sol_bootstrp0.mat" %method)
+#result3 = scipy.io.loadmat(result_dir + "/20161024_8000_source/Subj8_EVC_PPA_MEG_%s_sol_bootstrp0.mat" %method)
+#result0 = scipy.io.loadmat(result_dir + "nips2016_submission/Subj8_%s_sol_bootstrp0.mat" %method)
 
-result_list = [result1, result2, result3, result0]
-result_names = ['noaspect','withaspect','newoct6','nips']
 
-for l in range(4):
+
+
+
+
+result2 = scipy.io.loadmat(result_dir + "/Subj8_EVC_PPA_ico41_1_110Hz_notch_ica_ave_alpha15.0_MEG_%s_sol_bootstrp1.mat" %method)
+result0 = scipy.io.loadmat(result_dir + "nips2016_submission/Subj8_%s_sol_bootstrp1.mat" %method)
+#result_list = [result1, result2, result3, result0]
+#result_names = ['noaspect','withaspect','newoct6','nips']
+
+result_list = [result2,  result0]
+result_names = ['withaspect','nips']
+
+for l in range(len(result_list)):
     result_list[l]['Q_hat']
 
 
 
-i1,i2 = 0,1
+i1,i2 = 1,1
 plt.figure()
-for l in range(4):
+for l in range(len(result_list)):
     plt.plot(result_list[l]['A_hat'][:,i1,i2])
 plt.legend(result_names)
 
 trial_ind = 1  
 ROI_ind = 1  
 plt.figure()
-for l in range(4):
+for l in range(len(result_list)):
     plt.plot(result_list[l]['u_array_hat'][trial_ind, :,ROI_ind])
 plt.legend(result_names)
 
-for l in range(4):
+for l in range(len(result_list)):
     plt.plot(result_list[l]['u_array_hat'][:, :,ROI_ind].std(axis = 0))
 plt.legend(result_names)
 
@@ -132,6 +150,7 @@ MEG_data_dir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/D
 MEG_fname_suffix = "1_110Hz_notch_ica_ave_alpha15.0_no_aspect"
 fname_suffix = MEG_fname_suffix 
 
+"""
 ave_mat_path =  MEG_data_dir + "epoch_raw_data/%s/%s_%s.mat" %(subj,  subj, fname_suffix)
 
 datadir = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/"
@@ -214,7 +233,7 @@ epochsA.info['projs'][0]['data']['data'] - epochs.info['projs'][0]['data']['data
 epochs.info['sfreq']
 epochsA.info['sfreq']
 
-
+"""
            
 
 # try looking at Subj4 instead

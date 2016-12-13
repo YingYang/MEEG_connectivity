@@ -107,13 +107,16 @@ def get_estimate_baseline(M, ROI_list, n_ROI_valid, fwd_path, evoked_path, noise
         signs = np.sign(np.dot(tmp_nn, tmpv[0,:])) if flag_sign_flip else np.ones(len(tmp_ind))
         for r in range(q):
             # something is wrong here, I did not take the mean???? only the sum?
-            ROI_U[r,i,:] = np.sum(stcs[r].data[tmp_ind].T*signs, axis = 1)
-            Sigma_J_list_hat[i] += np.var( (stcs[r].data[tmp_ind].T*signs).T - ROI_U[r,i,:])
+            ROI_U[r,i,:] = np.sum(stcs[r].data[tmp_ind].T*signs, axis = 1)/np.float(len(tmp_ind))
+            #Sigma_J_list_hat[i] += np.var( (stcs[r].data[tmp_ind].T*signs).T - ROI_U[r,i,:])
+            # this only works when sign is 1 or +-1
+            Sigma_J_list_hat[i] += np.mean( ((stcs[r].data[tmp_ind].T*signs).T - ROI_U[r,i,:])**2)
         Sigma_J_list_hat[i] /= np.float(q)
     
     for r in range(q):
         tmp = stcs[r].data[ROI_list[-1]]
-        Sigma_J_list_hat[-1] += np.var(tmp)
+        #Sigma_J_list_hat[-1] += np.var(tmp)
+        Sigma_J_list_hat[-1] += (tmp**2).mean()
     Sigma_J_list_hat[-1] /= np.float(q)
     
     # maybe also compare with the mne solution

@@ -18,13 +18,18 @@ from ROI_cov_Kronecker import (get_mle_kron_cov,
                                get_neg_llh_kron,get_map_coor_descent_kron)                            
 
 def get_estimate(filepath, outname, method = "ROIcov", 
-                 loose = None, depth = 0.8,
-                 verbose = True, whiten_flag = True):
+                 loose = None, depth = None,
+                 verbose = True, whiten_flag = True,
+                 lambda2 = 1.0, Qu0 = None,
+                 L_flag = True, L_list0 = None, Sigma_J_list0 = None):
     """
     filepath, full path of the file, with no ".mat" or "-ave.fif" suffix.
     e.g. filepath = "/home/ying/sandbox/MEG_simu_test"
     """
     
+    
+    if method == "ROIcovKronecker" and whiten_flag is False:
+        raise ValueError("ROIcovKronecker requires pre-whitening")
     #========= load data ======================
     mat_dict = scipy.io.loadmat(filepath+".mat")
     ROI_list = list()
@@ -73,7 +78,7 @@ def get_estimate(filepath, outname, method = "ROIcov",
     sel = [l for l in range(len(all_ch_names)) if all_ch_names[l] not in evoked.info['bads']]
 
     #======== ROI cov method
-    if method is "ROIcov" or "ROIcovKronecker":
+    if method in [ "ROIcov", "ROIcovKronecker"]:
         if loose is None and not is_fixed_orient(fwd):
             # follow the tf_mixed_norm
             fwd= copy.deepcopy(fwd)
@@ -90,8 +95,9 @@ def get_estimate(filepath, outname, method = "ROIcov",
             M = (np.dot(Sigma_E_chol_inv, M)).transpose([1,0,2])
 
         # these arguments are going to be passed from inputs
-        prior_Q, prior_Sigma_J,prior_L, prior_Tcov = False, False, True, False
-        Q_flag, Sigma_J_flag, L_flag, Tcov_flag  = True, True, True, True
+        Q_flag, Sigma_J_flag, Tcov_flag  = True, True, True
+        prior_Q, prior_Sigma_J, prior_Tcov = False, False, False
+        prior_L = True if L_flag else False
         tau, step_ini, MaxIter, tol, MaxIter0, tol0, verbose0  = 0.8, 1.0, 10, 1E-5, 10, 1E-3, False
         # Create prior for L, not necessarily the same as the truth
         L_list_param = 1.5 # a exp (-b ||x-y||^2)
@@ -108,6 +114,8 @@ def get_estimate(filepath, outname, method = "ROIcov",
         for i in range(n_ROI_valid):
             inv_Q_L_list[i] = np.linalg.inv(Q_L_list[i]) 
             
+        
+        n_trial, n_channel, T = M.shape
         # other priors, not used for now
         alpha, beta = 1.0, 1.0
         nu = n_ROI_valid +1
@@ -119,21 +127,37 @@ def get_estimate(filepath, outname, method = "ROIcov",
         V1 = np.eye(T)
         
         # how many times to randomly initialize the data
-        n_ini = 1
+        if Qu0 is None:
+            n_ini = 1
+            Qu0 = np.eye(n_ROI_valid)*1E-18
+        else:
+            print "using given Qu0"
+            n_ini = 1
+            
+
         result_all = np.zeros(n_ini, dtype = np.object)
           
         # Tcov initialization to be added
-        Tcov0, _ = get_mle_kron_cov(M, tol = 1E-6, MaxIter = 100)
+        #Tcov0, _ = get_mle_kron_cov(M, tol = 1E-6, MaxIter = 100) 
+        # a different initialization
+        Tcov0 = np.zeros([T,T])
+        for i in range(n_channel):
+            Tcov0 += np.corrcoef(M[:,i,:].T)
+        Tcov0 /= np.float(n_channel) 
         T00 = np.linalg.cholesky(Tcov0)
         
         for l in range(n_ini):
-            Qu0 = np.eye(n_ROI_valid)*1E-18    
-            sigma_J_list0 = np.ones(n_ROI)*1E-18
-            Sigma_J_list0 = sigma_J_list0**2
-            L_list0 = copy.deepcopy(L_list)
-            for i in range(n_ROI_valid):
-                #L_list0[i] = np.random.randn(L_list0[i].size)
-                L_list0[i] = np.ones(L_list0[i].size)
+            if Sigma_J_list0 is None:
+                "initializing sigma_J_list0"
+                sigma_J_list0 = np.ones(n_ROI)*1E-18
+                Sigma_J_list0 = sigma_J_list0**2
+                
+            if L_list0 is None:
+                L_list0 = copy.deepcopy(L_list)
+                for i in range(n_ROI_valid):
+                    #L_list0[i] = np.random.randn(L_list0[i].size)
+                    L_list0[i] = np.ones(L_list0[i].size)
+                    print "L set to 1"
         
             if method is "ROIcov":
                 # just analyze the middle time point.
@@ -177,6 +201,8 @@ def get_estimate(filepath, outname, method = "ROIcov",
             elif method is "ROIcovKronecker":
                 if verbose:
                     print "initial obj"
+                    Phi0 = np.linalg.cholesky(Qu0)       
+                    sigma_J_list0 = np.sqrt(Sigma_J_list0)
                     obj0 = get_neg_llh_kron(Phi0, sigma_J_list0, L_list0, T00, # unknown parameters
                                      ROI_list, G, M, q, 
                                      nu, V, nu1, V1, inv_Q_L_list, alpha, beta, # prior params
@@ -215,9 +241,7 @@ def get_estimate(filepath, outname, method = "ROIcov",
     # can do dSPM too,  directly apply the kernel
     elif method in ["mneFlip","mneTrueL","mnePairwise",
                     "mneTrueLKronecker", "mneFlipKronecker"]:
-        mne_method = "dSPM" # can be MNE
-        lambda2 = 1.0
-        
+        mne_method = "MNE" # can be MNE        
         q = M.shape[0]
         # create the inverse operator
         inv_op = mne.minimum_norm.make_inverse_operator(evoked.info, fwd,

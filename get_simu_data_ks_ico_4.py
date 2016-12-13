@@ -44,13 +44,15 @@ def get_simu_data_ks_ico_4(q,T, labels, outpath,
     
     
     # this noise cov might be singular, create a regularized one from Raw
+    #cov_fname = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_STC/STFTR/MEG/" \
+    #                + "%s_STFT-R_MEGnoise_cov-cov.fif" %(subj)
     cov_fname = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/Result_STC/STFTR/MEG/" \
-                    + "%s_STFT-R_MEGnoise_cov-cov.fif" %(subj)
+                    + "%s_STFT-R_all_image_Layer_1_7_CCA_ncomp6_MEGnoise_cov-cov.fif" %(subj)
     noise_cov = mne.read_cov(cov_fname) 
 
     # obtain evoked info
     evoked_path = "/home/ying/dropbox_unsync/MEG_scene_neil/MEG_EEG_DATA/MEG_DATA/DATA/"+\
-                "epoch_raw_data/%s/%s_run1_filter_1_110Hz_notch_ica-epo.fif.gz" %(subj,subj)
+                "epoch_raw_data/%s/%s_run1_filter_1_110Hz_notch_ica_smoothed-epo.fif.gz" %(subj,subj)
     evoked = mne.read_epochs(evoked_path)
     info = evoked.info
     del(evoked)
@@ -167,14 +169,14 @@ def get_simu_data_ks_ico_4(q,T, labels, outpath,
             st_mat_dict = scipy.io.loadmat(st_mat_name)
             time_covar_chol, space_covar_chol = st_mat_dict['time_covar_chol'], st_mat_dict['space_covar_chol']
         
-        if flag_space_smooth_source_noise:
-            tmp_noise = np.dot(space_covar_chol, np.random.randn(q, m, T+1)).transpose([1,0,2])
-        else:
-            tmp_noise = np.random.randn(q, m, T+1)
-        if flag_time_smooth_source_noise:
-            J_noise = (tmp_noise).dot(time_covar_chol.T)
-        else: 
-            J_noise = (tmp_noise)
+    if flag_space_smooth_source_noise:
+        tmp_noise = np.dot(space_covar_chol, np.random.randn(q, m, T+1)).transpose([1,0,2])
+    else:
+        tmp_noise = np.random.randn(q, m, T+1)
+    if flag_time_smooth_source_noise:
+        J_noise = (tmp_noise).dot(time_covar_chol.T)
+    else: 
+        J_noise = (tmp_noise)
     
         # kronecker
         # covar  AXB,  first dim AA^T second B^T B

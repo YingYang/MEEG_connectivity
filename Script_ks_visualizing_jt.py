@@ -104,23 +104,51 @@ def save_visualized_jt(M, noise_cov_path,  evoked_path,
     L = np.zeros([m,n_ROI_valid])
     for l in range(n_ROI_valid):
         L[ROI_list[l],l] = 1.0
+      
+    if False:
+        # compute the inverse
+        inv_Sigma_E = np.linalg.inv(Sigma_E)
+        GQE = G.T.dot(inv_Sigma_E)
+        GQEG = GQE.dot(G)
+        QJ_inv = 1.0/QJ
+        GQEG += np.diag(QJ_inv)
+        inv_op = np.linalg.inv(GQEG)
         
-    # compute the inverse
-    inv_Sigma_E = np.linalg.inv(Sigma_E)
-    GQE = G.T.dot(inv_Sigma_E)
-    GQEG = GQE.dot(G)
-    QJ_inv = 1.0/QJ
-    GQEG += np.diag(QJ_inv)
-    inv_op = np.linalg.inv(GQEG)
+        QJL = (L.T/QJ).T
+        
+    # =============debug =========================
+    GQJ = G*QJ
+    Q0 = Sigma_E + (GQJ).dot(G.T)
+    invQ0 = np.linalg.inv(Q0)
+    chol = np.linalg.cholesky(invQ0)    
     
-    QJL = (L.T/QJ).T
+    # QJ G'(QE+GQJG')^{-1}
+    operator_y = GQJ.T.dot(invQ0)
+    # I - QJ G' (QE+ GQJG')^[-1} G
+    operator_u = (np.eye(m) - operator_y.dot(G)).dot(L)
+    
+    # QJ - QJ G' (QE+ GQJG')^[-1} G GJ
+    post_var = (np.eye(m) - operator_y.dot(G))*QJ
+    marg_std = np.sqrt( np.diag(post_var))
     
     
+    if False:
+        trial_ind = 0
+        time_ind = 0
+        plt.errorbar(range(m), J[trial_ind, :, time_ind], 2*marg_std)  
+        plt.plot(range(m), J_true[trial_ind,:,time_ind])
+        
+    
+
     J = np.zeros([q, m, T])
     for r in range(q):
-        J[r] = inv_op.dot(np.dot(GQE, M[r]) + np.dot(QJL, ut[r]))
+        #J[r] = inv_op.dot(np.dot(GQE, M[r]) + np.dot(QJL, ut[r]))
+        J[r] = operator_y.dot(M[r]) + operator_u.dot(ut[r])
         
+    LU = (np.dot(L,ut)).transpose([1,0,2])
+    GLU = (np.dot(G.dot(L), ut)).transpose([1,0,2])
     
+    plt.plot(J[0,:,0].ravel(), LU[0,:,0].ravel(), '.')
     
      # mne results
     evoked = mne.read_evokeds(evoked_path)[0]
@@ -148,22 +176,32 @@ def save_visualized_jt(M, noise_cov_path,  evoked_path,
         J_mne[r] = stcs[r].data
 
     
+    W = J-LU
+    eta_hat = (operator_y.dot(M - GLU)).transpose([1,0,2])
+
     
     
      # 
     # compute the std of J
     J_std = np.std(J, axis = 0)
     u_std = np.std(ut, axis = 0)
-    J_mne_std = np.std(J, axis = 0)
+    J_mne_std = np.std(J_mne, axis = 0)
     
+    mat_dict = scipy.io.loadmat(simupath)
     trial_ind = 0
-    tmp_J_list = [J[trial_ind], J_mne_std[trial_ind], J_std]
-    tmp_u_list = [ut[trial_ind], ut[trial_ind], u_std]
-    suffix_list = ['trial%d' % trial_ind, "mne", "std"]
+    tmp_J_list = [J[trial_ind], J_mne[trial_ind], J_std, J_mne_std, mat_dict['J'][trial_ind]]
+    tmp_u_list = [ut[trial_ind], ut[trial_ind], u_std, u_std,  mat_dict['u'][trial_ind]]
+    suffix_list = ['trial%d' % trial_ind, "mne", "std", "mnestd", "truth"]
     # some other visulaizaation
+    
+#    trial_ind = 0
+#    tmp_J_list = [J[trial_ind],  mat_dict['J'][trial_ind]]
+#    tmp_u_list = [ut[trial_ind], mat_dict['u'][trial_ind]]
+#    suffix_list = ['trial%d' % trial_ind, "truth"]
+    
     times_in_ms = (np.arange(tmin, tmin+T*tstep, tstep))*1000.0
     
-    for ll in range(2):
+    for ll in range(5):
         tmp_J, tmp_u, suffix = tmp_J_list[ll], tmp_u_list[ll], suffix_list[ll]
         plt.figure()
         for l in range(n_ROI):
@@ -177,15 +215,8 @@ def save_visualized_jt(M, noise_cov_path,  evoked_path,
             _= plt.xlabel('time ms')
             _= plt.title("ROI %d" %ROI_id)
         _= plt.tight_layout()
-        _ = plt.savefig(out_fig_name + "%s.pdf" %suffix)
+        #_ = plt.savefig(out_fig_name + "%s.pdf" %suffix)
               
-    
-
-
-   
-
-    
-    
    
     # save as an STC
     vertices_to = [fwd['src'][0]['vertno'], 
@@ -200,29 +231,29 @@ def save_visualized_jt(M, noise_cov_path,  evoked_path,
     time_seq = np.arange(0, T, 10)
     surface = "inflated"
    
-    brain = stc.plot(surface= surface, hemi='both', subjects_dir=subjects_dir,
-                    subject = subj,  clim=clim)
-    for k in time_seq:
-        brain.set_data_time_index(k)
-        for view in ['ventral']:
-            brain.show_view(view)
-            im_name = out_fig_name + "%03dms_%s.pdf" \
-               %(np.int(np.round(stc.times[k]*1000)), view)
-            brain.save_image(im_name) 
-            print k
-    brain.close()
-    
-    for hemi in ['lh','rh']:
-        brain = stc.plot(surface=surface, hemi= hemi, subjects_dir=subjects_dir,
-                subject = subj,  clim=clim)
-        for k in time_seq:
-            brain.set_data_time_index(k)
-            for view in ['medial','lateral']:
-                brain.show_view(view)
-                im_name = out_fig_name + "%03dms_%s_%s.pdf" \
-               %(np.int(np.round(stc.times[k]*1000)), view, hemi)
-                brain.save_image(im_name)          
-        brain.close()
+#    brain = stc.plot(surface= surface, hemi='both', subjects_dir=subjects_dir,
+#                    subject = subj,  clim=clim)
+#    for k in time_seq:
+#        brain.set_data_time_index(k)
+#        for view in ['ventral']:
+#            brain.show_view(view)
+#            im_name = out_fig_name + "%03dms_%s.pdf" \
+#               %(np.int(np.round(stc.times[k]*1000)), view)
+#            brain.save_image(im_name) 
+#            print k
+#    brain.close()
+#    
+#    for hemi in ['lh','rh']:
+#        brain = stc.plot(surface=surface, hemi= hemi, subjects_dir=subjects_dir,
+#                subject = subj,  clim=clim)
+#        for k in time_seq:
+#            brain.set_data_time_index(k)
+#            for view in ['medial','lateral']:
+#                brain.show_view(view)
+#                im_name = out_fig_name + "%03dms_%s_%s.pdf" \
+#               %(np.int(np.round(stc.times[k]*1000)), view, hemi)
+#                brain.save_image(im_name)          
+#        brain.close()
     
     return 0
     
@@ -230,7 +261,7 @@ def save_visualized_jt(M, noise_cov_path,  evoked_path,
 if __name__ == "__main__":
     
     #flag_real_data = False
-    flag_real_data = True
+    flag_real_data = False
     
     if flag_real_data:
         #================= setting paths
@@ -369,7 +400,7 @@ if __name__ == "__main__":
                      #'lateraloccipital-lh', 'lateraloccipital-rh',]
                     'parahippocampal-lh', 'parahippocampal-rh',]
 
-        alpha = 2
+        alpha = 5
         flag_random_A = False
         flag_time_smooth_source_noise = True
         flag_space_smooth_source_noise = False
@@ -391,19 +422,38 @@ if __name__ == "__main__":
         
     
 
-        
+        simu_id = 1
         simu_path = "/home/ying/dropbox_unsync/MEEG_source_roi_cov_simu_and_data/"
-        outpath = simu_path + \
-                   "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
-                   %(p,alpha, 0, flag_random_A, 
-                      flag_time_smooth_source_noise, 
-                      flag_space_smooth_source_noise,
-                      flag_nn_dot)
         
-        mat_dict = scipy.io.loadmat(outpath + ".mat")
+        simupath =  simu_path + \
+               "/20160520_time_of_nips_submission/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha, simu_id, flag_random_A)
+                  
+        outpath = simu_path + \
+               "/nips_simu_new_sol/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha, simu_id, flag_random_A) 
+      
+        
+        mat_dict = scipy.io.loadmat(simupath + ".mat")
+        
+        M_true = mat_dict['M']
+        
+        J_true = mat_dict['J']
+        
+        u_true = mat_dict['u']
+        
+        Sigma_E = mat_dict['Sigma_E']
+        
+        Sigma_J_list_true = mat_dict['Sigma_J_list'][0]
+        
+        G = mat_dict['G']
+        
+        ROI_list = mat_dict['ROI_list'][0]
+        
+        
         
         fwd_path = mat_dict['fwd_path'][0]
-        noise_cov_path = mat_dict['noise_cov_path'][0]
+        noise_cov_path = simupath + "-cov.fif"
         
         ROI_list = list()
         n_ROI = len(mat_dict['ROI_list'][0])
@@ -417,7 +467,35 @@ if __name__ == "__main__":
         ut = result['u_array_hat'].transpose([0,2,1])
         Sigma_J_list = result['Sigma_J_list_hat'][0]
         
-        evoked_path = outpath+"-ave.fif.gz"
+        evoked_path = simupath+"-ave.fif.gz"
+        
+        out_stc_name = "/home/ying/Dropbox/tmp_stc"
+        out_fig_name = "/home/ying/Dropbox/tmp_stc"
+        whiten_flag = False
+        tmin = 0.0
+        tstep = 0.01
+#        save_visualized_jt(M_true, noise_cov_path,  evoked_path, 
+#                           Sigma_J_list_true, u_true,
+#                           ROI_list, n_ROI_valid,
+#                           subjects_dir,
+#                           subj,                       
+#                           fwd_path, 
+#                           out_stc_name, out_fig_name,
+#                           whiten_flag, depth = None, force_fixed=True, tmin= tmin, tstep=tstep)
+                           
+        save_visualized_jt(M, noise_cov_path,  evoked_path, 
+                           Sigma_J_list, ut,
+                           ROI_list, n_ROI_valid,
+                           subjects_dir,
+                           subj,                       
+                           fwd_path, 
+                           out_stc_name, out_fig_name,
+                           whiten_flag, depth = None, force_fixed=True, tmin= tmin, tstep=tstep)                   
+        
+       
+        
+        
+        
     
     
 

@@ -5,8 +5,12 @@ import numpy as np
 import mne
 import sys
 import scipy.io
-path = "/home/ying/Dropbox/MEG_source_loc_proj/source_roi_cov/"
-sys.path.insert(0, path)
+path = ["/home/ying/Dropbox/MEG_source_loc_proj/source_roi_cov/",
+        "/home/ying/Dropbox/MEG_source_loc_proj/Exploration/"]
+        
+for path0 in path:
+    sys.path.insert(0, path0)
+    
 from One_and_two_step_regressions import two_step_regression
 from ROI_cov import get_map_coor_descent, get_neg_llh
 import matplotlib
@@ -385,9 +389,9 @@ if __name__ == "__main__":
             plt.figure(figsize = (10,8) )
             corr_names = ['true','one_step']
             for i0 in range(n_Lambda):
-                corr_names.append('mne lambda = 10^%d' %np.log10(Lambda_seq[i0]))
+                corr_names.append('mne\n lambda = 10^%d' %np.log10(Lambda_seq[i0]))
             for i0 in range(n_Lambda):
-                corr_names.append('mne pairwise lambda = 10^%d' %np.log10(Lambda_seq[i0]))
+                corr_names.append('mne pairwise \n lambda = 10^%d' %np.log10(Lambda_seq[i0]))
             n_rows = 3
             n_cols = np.int(np.ceil(corr_all.shape[0]/n_rows))
             for l in range(corr_all.shape[0]):
@@ -396,8 +400,8 @@ if __name__ == "__main__":
                               interpolation ="none", aspect = "auto")
                 _=plt.colorbar()
                 _=plt.title(corr_names[l])
-            #_=plt.tight_layout()
-            #plt.savefig("/home/ying/Dropbox/tmp/ROI_cov_simu_example.pdf")
+            _=plt.tight_layout()
+            plt.savefig("/home/ying/dropbox_unsync/MEEG_source_roi_cov_simu_and_data/simple_roi_cov/ROI_cov_simu_L%d_example_corr_abs.pdf" %L_flag)
 
                   
         corr_all = np.zeros([2+2*n_Lambda, n_ROI_valid, n_ROI_valid])
@@ -417,7 +421,7 @@ if __name__ == "__main__":
         print dist_to_true_corr[k,:]
         print corr_with_true_corr[k,:]
     
-    mat_name = "/home/ying/Dropbox/tmp/ROI_cov_simu.mat"
+    mat_name = "/home/ying/dropbox_unsync/MEEG_source_roi_cov_simu_and_data/simple_roi_cov/ROI_cov_simu_simple_L%d.mat" %(L_flag)
     mat_dict = dict(dist_to_true_corr = dist_to_true_corr, 
                     corr_with_true_corr = corr_with_true_corr,
                     corr_all_rep = corr_all_rep)
@@ -462,7 +466,8 @@ if __name__ == "__main__":
         plt.xlim(0.3,n_method+1)
         plt.ylabel(data_name[j0])
         plt.grid()
-    fig_name = "/home/ying/Dropbox/tmp/ROI_cov_simu_L%d_alpha%d.pdf" %(L_flag, alpha)
+    # what is alpha here?
+    fig_name = "/home/ying/dropbox_unsync/MEEG_source_roi_cov_simu_and_data/simple_roi_cov/ROI_cov_simu_L%d.pdf" %(L_flag)
     plt.savefig(fig_name)
 
 

@@ -52,7 +52,6 @@ q = 200
 
 Flag_simu = False
 Flag_sol = False
-old_simu = True
 
 Flag_ks_true_ini = True
 #======== use freesurfer anatomical labels
@@ -79,9 +78,9 @@ alpha_list = np.array([2,5]);
 n_alpha = len(alpha_list);
 # also define the gamma_distribution of sigma_i^2
 flag_random_A = False
-flag_time_smooth_source_noise = True
+flag_time_smooth_source_noise = False
 flag_space_smooth_source_noise = False
-flag_nn_dot = True
+flag_nn_dot = False
 #flag_empi_true = flag_time_smooth_source_noise or flag_space_smooth_source_noise
 flag_empi_true = False
 
@@ -159,6 +158,13 @@ if Flag_simu:
             Sigma_J_list = Sigma_J_list*scale_factor**2
             
             #======== 
+            simupath = simu_path + \
+               "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
+                %(p,alpha,simu_id[k], flag_random_A, 
+                  flag_time_smooth_source_noise, 
+                  flag_space_smooth_source_noise,
+                  flag_nn_dot)
+                  
             outpath = simu_path + \
                "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
                 %(p,alpha,simu_id[k], flag_random_A, 
@@ -174,9 +180,9 @@ if Flag_simu:
 
 #%% solving the simulations, using mne and ks
 # define some function and call them is easier!!
-def get_solution(outpath, lambda2_seq, Flag_ks_true_ini = False):                    
+def get_solution(simupath, outpath, lambda2_seq, Flag_ks_true_ini = False):                    
     #=======solution========================= 
-    mat_dict = scipy.io.loadmat(outpath)
+    mat_dict = scipy.io.loadmat(simupath)
     ROI_list = list()
     n_ROI = len(mat_dict['ROI_list'][0])
     n_ROI_valid = n_ROI-1
@@ -185,8 +191,9 @@ def get_solution(outpath, lambda2_seq, Flag_ks_true_ini = False):
     M = mat_dict['M']
     
     fwd_path = mat_dict['fwd_path'][0]
-    noise_cov_path = mat_dict['noise_cov_path'][0]
-    evoked_path = outpath+"-ave.fif.gz" 
+    #noise_cov_path = mat_dict['noise_cov_path'][0]
+    noise_cov_path = simupath+"-cov.fif"
+    evoked_path = simupath+"-ave.fif.gz"
     
     prior_A = dict(lambda0 = 0.0, lambda1 = 0.1)
     #prior_A = None
@@ -241,26 +248,118 @@ def get_solution(outpath, lambda2_seq, Flag_ks_true_ini = False):
                      ini_sigma_J_list = ini_sigma_J_list)
     return 0
 
+
+#============= more mne solutions, in case the lambda seq was not good 
+def get_mne_solution(simupath, outpath, lambda2_seq, lambda2_ind):                    
+    #=======solution========================= 
+    mat_dict = scipy.io.loadmat(simupath)
+    ROI_list = list()
+    n_ROI = len(mat_dict['ROI_list'][0])
+    n_ROI_valid = n_ROI-1
+    for i in range(n_ROI):
+        ROI_list.append(mat_dict['ROI_list'][0,i][0])
+    M = mat_dict['M']
+    
+    fwd_path = mat_dict['fwd_path'][0]
+    #noise_cov_path = mat_dict['noise_cov_path'][0]
+    noise_cov_path = simupath+"-cov.fif"
+    evoked_path = simupath+"-ave.fif.gz"
+    
+    prior_A = dict(lambda0 = 0.0, lambda1 = 0.1)
+    #prior_A = None
+    prior_Q0, prior_Q, prior_sigma_J_list = None,None,None    
+    MaxIter0, MaxIter = 100, 40
+    tol0,tol = 1E-4, 2E-2
+    verbose0, verbose = False, False
+    L_flag = False
+    whiten_flag = True
+    depth=None
+    flag_A_time_vary = True
+    
+    n_lambda2 = len(lambda2_seq)
+    for l0 in range(n_lambda2):
+        tmp_lambda2 = lambda2_seq[l0]   
+        for flag_sign_flip in [True, False]:  
+            out_name_mne = outpath + "_mne_sol_lbdid%d_flip%d" %(lambda2_ind[l0], flag_sign_flip)
+            get_estimate_baseline(M, ROI_list, n_ROI_valid, fwd_path, evoked_path, noise_cov_path, out_name_mne, 
+                     method = "MNE", lambda2 = tmp_lambda2, prior_Q0 = prior_Q0, 
+                     prior_Q = prior_Q, prior_sigma_J_list = prior_sigma_J_list, 
+                     prior_A = prior_A, depth = depth, MaxIter0 = MaxIter0, 
+                     MaxIter = MaxIter, tol0 = tol0, tol = tol, verbose0 = verbose, 
+                     verbose =verbose, flag_A_time_vary = flag_A_time_vary, 
+                     flag_sign_flip = flag_sign_flip) 
+    return 0
+
+
 #=========== run the solutions
-if Flag_sol: 
+if Flag_sol:
+    lambda2_seq_new =  np.exp(np.arange(-20,3, 1))
+    lambda2_ind_new = range(0,len(lambda2_seq_new))
+    #======20161026==== re-run the nips solution, mne solving part has some bug
     for i in range(n_alpha):
         for k in range(n_simu):
             alpha = alpha_list[i]
+            simupath =  simu_path + \
+               "/20160520_time_of_nips_submission/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha,simu_id[k], flag_random_A)
+                  
             outpath = simu_path + \
-               "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
-                %(p,alpha,simu_id[k], flag_random_A, 
-                  flag_time_smooth_source_noise, 
-                  flag_space_smooth_source_noise,
-                  flag_nn_dot)
-            get_solution(outpath, lambda2_seq, Flag_ks_true_ini = Flag_ks_true_ini)
+               "/nips_simu_new_sol/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha,simu_id[k], flag_random_A) 
+                 # flag_time_smooth_source_noise, flag_space_smooth_source_noise, flag_nn_dot)
+            #get_solution(simupath, outpath, lambda2_seq, Flag_ks_true_ini = Flag_ks_true_ini)
+            # additional mne results with other lambdas
+            get_mne_solution(simupath, outpath, lambda2_seq_new, lambda2_ind_new)
                 
+
+
+#============== debug, check whether the solution changed after I corrected for get_estimate_baseline 20161026
+"""
+truth = scipy.io.loadmat(simu_path + "/20160520_time_of_nips_submission/2_ROI_alpha2.0_simu0_randA0_smthns0.mat")
+result1 = scipy.io.loadmat(simu_path + "/20160520_time_of_nips_submission/2_ROI_alpha2.0_simu0_randA0_smthns0_mne_sol_lbdid0_flip0.mat")
+result2 =  scipy.io.loadmat(simu_path + "/nips_simu_new_sol/snapshot_20161026/2_ROI_alpha2.0_simu0_randA0_smthns0_mne_sol_lbdid0_flip0.mat")
+
+result3 =  scipy.io.loadmat(simu_path + "/nips_simu_new_sol/2_ROI_alpha2.0_simu0_randA0_smthns0_mne_sol_lbdid7_flip0.mat")
+
+result11 = scipy.io.loadmat(simu_path + "/20160520_time_of_nips_submission/2_ROI_alpha2.0_simu0_randA0_smthns0_ks_sol.mat")
+result22 =  scipy.io.loadmat(simu_path + "/nips_simu_new_sol/snapshot_20161026/2_ROI_alpha2.0_simu0_randA0_smthns0_ks_sol.mat")
+
+
+truth['Q']
+result1['Q_hat']
+result2['Q_hat']
+result11['Q_hat']
+result22['Q_hat']
+
+result3['Q_hat']
+
+plt.plot(result11['A_hat'].reshape([-1,4]), 'r')
+plt.plot(result22['A_hat'].reshape([-1,4]), 'g')
+plt.plot(result1['A_hat'].reshape([-1,4]), 'm')
+plt.plot(result2['A_hat'].reshape([-1,4]), 'c')
+plt.plot(truth['A'].reshape([-1,4]), 'k')
+
+
+plt.figure(); plt.plot(result1['u_array_hat'][0,:,:], 'r')
+plt.figure(); plt.plot(result2['u_array_hat'][0,:,:], 'g')
+
+plt.figure(); plt.plot(truth['u'][0,:,:].T, 'k')
+
+result1['u_array_hat'][0,:,0]/result2['u_array_hat'][0,:,0]
+result1['u_array_hat'][0,:,1]/result2['u_array_hat'][0,:,1]
+
+
+result1['A_hat'][0,:,:]/result2['A_hat'][0,:,:]
+"""
+
+
 
 #%%============== evaluate the results ===========
 # added on 20160719 rebuttal, variance explained
-def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
+def get_eval(simupath, outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
              flag_sign_flip_list = [True, False]):
     
-    mat_dict = scipy.io.loadmat(outpath)
+    mat_dict = scipy.io.loadmat(simupath)
     Q = mat_dict['Q']
     #Q0 = mat_dict['Q0']
     A = mat_dict['A']
@@ -325,8 +424,11 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
     Q_abs_error = np.zeros(n_sol) # relative error of absolute value of correlation
     u_corr = np.zeros(n_sol)
     u_error = np.zeros(n_sol)
-    
-    
+    # allow a single scalar to adjust for A, seprately compute for each entry
+    A_error_after_scale = np.zeros([n_sol, p, p])
+    A_error_after_scale_diag_mean = np.zeros([n_sol])
+    A_error_after_scale_off_diag_mean = np.zeros([n_sol])
+ 
     # best variance explained by truth
     y_hat0 = np.zeros(mat_dict['M'].shape)
     for r in range(mat_dict['M'].shape[0]):
@@ -334,7 +436,7 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
         
     var_best = 1.0-np.mean((mat_dict['M']-y_hat0)**2) \
                       /np.mean((mat_dict['M']-mat_dict['M'].mean(axis = 0))**2)
-    print "var best"                 
+    print "var best, noise ceiling"                 
     print var_best
     
     
@@ -351,6 +453,29 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
         tmp = np.sqrt(np.diag(Q_hat))
         Q_abs_corr_hat = np.abs(Q_hat/np.outer(tmp, tmp))
         Q_abs_error[l0] = np.sqrt(np.sum( (Q_abs_corr_hat-Q_abs_corr)**2 ))/np.sqrt(np.sum(Q_abs_corr**2))
+        
+        # A_scale_error_after_scale
+        count_diag = 0.0
+        count_off_diag = 0.0
+        for ii in range(p):
+            for jj in range(p):
+                tmp1, tmp_true = A_hat[:,ii,jj], A_true[:,ii,jj]
+                #tmp_true -scaler* tmp1
+                scalar = np.dot(tmp1, tmp_true)/np.dot(tmp1, tmp1)
+                tmp_error = tmp_true - scalar*tmp1
+                tmp_rel_error =  np.sqrt((tmp_error**2).sum())/np.sqrt((tmp_true**2).sum())
+                A_error_after_scale[l0,ii,jj] = tmp_rel_error
+                if ii == jj:
+                    A_error_after_scale_diag_mean[l0] += tmp_rel_error
+                    count_diag += 1
+                else:
+                    A_error_after_scale_off_diag_mean[l0] += tmp_rel_error
+                    count_off_diag += 1
+        
+        A_error_after_scale_diag_mean[l0]  /= count_diag          
+        A_error_after_scale_off_diag_mean[l0] /= count_off_diag
+        
+        print count_diag, count_off_diag
         
         # 20160720 newly added, variance explained
         y_hat = np.zeros(mat_dict['M'].shape)
@@ -371,17 +496,27 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
  
     # diff or ratio?
     # first one is alway ks
-    # 20160720, added var_prop
     eval_ks = dict(A_error = A_error[0], A_abs_error = A_abs_error[0],
                       Q_error = Q_error[0], Q_abs_error = Q_abs_error[0],
                      u_corr = u_corr[0], u_error = u_error[0], 
-                     var_prop = var_prop[0])
+                     var_prop = var_prop[0], 
+                    A_error_after_scale = A_error_after_scale[0],
+                    A_error_after_scale_diag_mean = A_error_after_scale_diag_mean[0],
+                    A_error_after_scale_off_diag_mean = A_error_after_scale_off_diag_mean[0],
+                    A_error_after_scale_mean =  A_error_after_scale[0].mean())
+                    
     eval_mne = dict(A_error = A_error[1::].min(), A_abs_error = A_abs_error[1::].min(),
                       Q_error = Q_error[1::].min(), Q_abs_error = Q_abs_error[1::].min(),
                      u_corr = u_corr[1::].max(), u_error = u_error[1::].min(),
-                     var_prop = var_prop[1::].max()) 
+                     var_prop = var_prop[1::].max(), 
+                    A_error_after_scale = A_error_after_scale[1::].min(axis = 0),
+                    A_error_after_scale_diag_mean = A_error_after_scale_diag_mean[1::].min(),
+                    A_error_after_scale_off_diag_mean = A_error_after_scale_off_diag_mean[1::].min(),
+                    A_error_after_scale_mean = np.min(A_error_after_scale[1::].mean(axis = 1).mean(axis = 1))  ) 
     eval_diff = dict()
-    for i in ['A_error', 'A_abs_error', 'Q_error', 'Q_abs_error', 'u_corr', 'u_error', 'var_prop']:
+    for i in ['A_error', 'A_abs_error', 'Q_error', 'Q_abs_error', 'u_corr', 'u_error',
+              'var_prop', 'A_error_after_scale', 'A_error_after_scale_off_diag_mean',
+               'A_error_after_scale_diag_mean', 'A_error_after_scale_mean']:
         eval_diff[i] = eval_ks[i]-eval_mne[i] 
        
     # visualization
@@ -390,6 +525,8 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
         print A_error
         print "u corr"
         print u_corr
+        print "Q error"
+        print Q_error
         # load the results
         result_ks = scipy.io.loadmat(sol_out_names[0])
         # pick the one that has the highest correlation
@@ -417,7 +554,7 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
         plt.savefig(outpath + "_A_plot.eps", dpi = 400)
         
         # plot Q
-        vmin, vmax = Q.min(), Q.max()          
+        vmin, vmax = None,None          
         data_to_show = [Q, result_ks['Q_hat'], result_mne['Q_hat']]
         plt.figure(figsize = (6,2))
         for i in range(3):
@@ -450,7 +587,7 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
                 count += 1
                 plt.subplot(2,p,count)
                 plt.plot(u_array_hat[:,:,i].ravel(), u_array[:,:,i].ravel(), '.')    
-                plt.title('%d_th ROI' % i)
+                plt.title('%d_th ROI method %d' % (i,l0))
         plt.tight_layout()
         plt.savefig(outpath + "_u_corr.pdf") 
 
@@ -459,30 +596,38 @@ def get_eval(outpath, n_lambda2, flag_vis = False, flag_empi_true = False,
 
 #=========== run the evaluation
 if True: 
-    crit_keys = ['A_error', 'A_abs_error', 'Q_error', 'Q_abs_error', 'u_corr', 'u_error', 'var_prop']
+    n_lambda2_new = len(lambda2_seq_new)
+    crit_keys = ['A_error', 'A_abs_error', 'Q_error', 'Q_abs_error', 'u_corr', 'u_error', 'var_prop',
+                 'A_error_after_scale_diag_mean', 'A_error_after_scale_off_diag_mean', 
+                 'A_error_after_scale_mean']
     n_crit = len(crit_keys) # 5 different crierions
     # [ks, mne, diff]
     eval_result = np.zeros([n_crit, 3, n_alpha, n_simu])
     for i in range(n_alpha):
         for k in range(n_simu):
             alpha = alpha_list[i]
-            if i == 1 and k ==0:
-                flag_vis = True
-            else:
-                flag_vis = False
+            #if i == 1 and k ==0:
+            #    flag_vis = True
+            #else:
+            #    flag_vis = False
+            flag_vis = True
             
             # for old simulations
-            if old_simu: 
-                outpath = simu_path + "/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns%d" \
-                %(p,alpha,simu_id[k], flag_random_A, 0)
-            else:
-                outpath = simu_path + \
-                   "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
-                    %(p,alpha,simu_id[k], flag_random_A, 
-                      flag_time_smooth_source_noise, 
-                      flag_space_smooth_source_noise,
-                      flag_nn_dot)
-            eval_ks, eval_mne, eval_diff = get_eval(outpath, n_lambda2, flag_vis = flag_vis, 
+            simupath =  simu_path + \
+               "/20160520_time_of_nips_submission/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha,simu_id[k], flag_random_A)
+                  
+            outpath = simu_path + \
+               "/nips_simu_new_sol/%s_ROI_alpha%1.1f_simu%d_randA%d_smthns0" \
+                %(p,alpha,simu_id[k], flag_random_A) 
+                
+             #   outpath = simu_path + \
+             #      "/%s_ROI_alpha%1.1f_simu%d_randA%d_t%d_s%d_nn%d" \
+             #       %(p,alpha,simu_id[k], flag_random_A, 
+             #         flag_time_smooth_source_noise, 
+             #         flag_space_smooth_source_noise,
+             #         flag_nn_dot)
+            eval_ks, eval_mne, eval_diff = get_eval(simupath, outpath, n_lambda2_new, flag_vis = flag_vis, 
                                            flag_sign_flip_list = [False], flag_empi_true = flag_empi_true)
             tmp = [eval_ks, eval_mne, eval_diff]
             for i1 in range(n_crit):
@@ -538,30 +683,30 @@ def bar_plot_with_se( data, xlabel_range, fig_name, width = 0.2, Flag_legend = T
 #==============================================================================
 if True:
     # 20160722 var_prop was newly added
-    xlabel = "signal strength"
-    ylabel = ['A error', 'A abs error', 'Q error', 'Q abs corr error', 'u correlation', 'u error', 'var_prop']
-    ymin = np.array([-1,-1,-1, -1,-0.5, -1.0,0])
+    xlabel = "a"
+    ylabel = ['A error', 'A abs error', 'Q error', 'Q abs corr error', 'u correlation', 'u error', 'var_prop',
+              'A scale diag ', 'A scale off diag', 'A error after scale']
+    ymin = np.array([-1.2, -1.2, -1.2, -1.2,  -0.5,  -2.0 ,0, -1.2, -1.2, -1.2])
     #ymax = np.array([1,None,None, None,None,None])
-    ymax = np.array([1, 1, 1, 1,1,1,1])
+    ymax = np.array([ 1.2,  1.2, 1.2,   1.2,  1.2,    1.2 ,1,  1.2,  1.2, 1.2])
     xlabel_range = alpha_list
     for i in range(len(crit_keys)):
         print i        
-        if old_simu:
-            fig_name = simu_path + "/%s_ROI_randA%d_smthns%d_%s.pdf" \
+        
+        fig_name = simu_path + "nips_simu_new_sol/%s_ROI_randA%d_smthns%d_%s.pdf" \
                 %(p,flag_random_A, 0,crit_keys[i])
-        else:
-            fig_name = simu_path + "%d_ROI_randA%d_t%d_s%d_nn%d_%s.pdf" \
-                %(p,flag_random_A, flag_time_smooth_source_noise, 
-                  flag_space_smooth_source_noise,
-                  flag_nn_dot, crit_keys[i])
+
+        #            fig_name = simu_path + "%d_ROI_randA%d_t%d_s%d_nn%d_%s.pdf" \
+        #                %(p,flag_random_A, flag_time_smooth_source_noise, 
+        #                  flag_space_smooth_source_noise,
+        #                  flag_nn_dot, crit_keys[i])
         data = eval_result[i]
-        Flag_legend = True if i == 5 else False
+        Flag_legend = True if i in [0,7,8,9] else False
         print Flag_legend
         print ylabel[i]
         bar_plot_with_se( data, xlabel_range, fig_name, width = 0.2, Flag_legend = Flag_legend,
                        ymax = ymax[i], ymin = ymin[i], xlabel = xlabel, ylabel = ylabel[i])
     plt.close('all') 
-
     #========== print ratio of error two
     for i in range(len(crit_keys)):
         print crit_keys[i]
